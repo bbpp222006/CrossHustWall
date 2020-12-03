@@ -4,13 +4,6 @@ import os
 import time
 from libhustpass import main
 import sys
-
-ticket = main.doLogin(os.environ['USERNAME'],os.environ['PASSWORD'],"http://access.hust.edu.cn/IDKJ-P/P/studentApi")
-print("this is username and password")
-print(os.environ['USERNAME'],os.environ['PASSWORD'])
-print("this is ticket")
-print(ticket)
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -32,10 +25,14 @@ options.add_experimental_option('prefs',{
 
 driver = webdriver.Chrome(options=options)
 # driver = webdriver.Chrome()
-try:
-    driver.get(ticket)
-except Exception:
-    print ("gg")
+
+for i in range(3):
+    ticket = main.doLogin(os.environ['USERNAME'],os.environ['PASSWORD'],"http://access.hust.edu.cn/IDKJ-P/P/studentApi")
+    try:
+        driver.get(ticket)
+        break
+    except Exception:
+        print ("gg",i)
 
 
 time.sleep(1)
