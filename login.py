@@ -6,7 +6,7 @@ from libhustpass import main
 import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
+import requests
 
 # options = webdriver.ChromeOptions()
 # options.add_argument("--headless")
