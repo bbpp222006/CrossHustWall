@@ -54,7 +54,7 @@ def strenc(data, first_key, second_key, third_key):
 
 def doLogin(username, password, url):
     r = requests.session()
-    login_html = r.get(url)
+    login_html = r.get(url,verify=False)
     captcha_content = r.get("https://pass.hust.edu.cn/cas/code?"+str(random.random()), stream=True)
     captcha_content.raw.decode_content = True
     nonce = re.search(
