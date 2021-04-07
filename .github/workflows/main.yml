@@ -64,10 +64,10 @@ jobs:
           
           
       # Runs a single command using the runners shell
-      - name: Set up Python 3.7
+      - name: Set up Python 3.6
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 3.6
 
       - name: Install dep
         run: |
