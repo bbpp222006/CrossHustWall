@@ -7,6 +7,8 @@ import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+requests.packages.urllib3.disable_warnings()
 
 # options = webdriver.ChromeOptions()
 # options.add_argument("--headless")
